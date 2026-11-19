@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "3.0",
+  "combinaciones": [
+    {
+      "creditosTotales": 10,
+      "selecciones": [
+        {
+          "curso": "CE1101",
+          "grupo": 1,
+          "creditos": 3,
+          "carrera": "Computadores",
+          "area": "computadores"
+        },
+        {
+          "curso": "CE1104",
+          "grupo": 2,
+          "creditos": 3,
+          "carrera": "Computadores",
+          "area": "computadores"
+        },
+        {
+          "curso": "MA1403",
+          "grupo": 4,
+          "creditos": 4,
+          "carrera": "Computadores",
+          "area": "matematicas"
+        }
+      ]
+    }
+  ]
+}

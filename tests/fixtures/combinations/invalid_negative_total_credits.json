@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "3.0",
+  "combinaciones": [
+    {
+      "creditosTotales": -1,
+      "selecciones": [
+        {
+          "curso": "CE1101",
+          "grupo": 1,
+          "creditos": 3,
+          "carrera": "Computadores",
+          "area": "computadores"
+        }
+      ]
+    }
+  ]
+}

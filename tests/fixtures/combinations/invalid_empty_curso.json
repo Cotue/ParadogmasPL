@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "3.0",
+  "combinaciones": [
+    {
+      "creditosTotales": 3,
+      "selecciones": [
+        {
+          "curso": "",
+          "grupo": 1,
+          "creditos": 3,
+          "carrera": "Computadores",
+          "area": "computadores"
+        }
+      ]
+    }
+  ]
+}

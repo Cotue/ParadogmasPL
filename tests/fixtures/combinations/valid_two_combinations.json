@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "3.0",
+  "combinaciones": [
+    {
+      "creditosTotales": 10,
+      "selecciones": [
+        {
+          "area": "computadores",
+          "carrera": "Computadores",
+          "creditos": 3,
+          "curso": "CE1101",
+          "grupo": 1
+        },
+        {
+          "area": "computadores",
+          "carrera": "Computadores",
+          "creditos": 3,
+          "curso": "CE1104",
+          "grupo": 2
+        },
+        {
+          "area": "matematicas",
+          "carrera": "Computadores",
+          "creditos": 4,
+          "curso": "MA1403",
+          "grupo": 4
+        }
+      ]
+    },
+    {
+      "creditosTotales": 10,
+      "selecciones": [
+        {
+          "area": "computadores",
+          "carrera": "Computadores",
+          "creditos": 3,
+          "curso": "CE1101",
+          "grupo": 1
+        },
+        {
+          "area": "computadores",
+          "carrera": "Computadores",
+          "creditos": 3,
+          "curso": "CE1104",
+          "grupo": 2
+        },
+        {
+          "area": "matematicas",
+          "carrera": "Computadores",
+          "creditos": 4,
+          "curso": "MA1403",
+          "grupo": 5
+        }
+      ]
+    }
+  ]
+}
