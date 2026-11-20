@@ -1,0 +1,1 @@
+% Archivo sin hechos de política
