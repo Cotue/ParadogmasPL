@@ -8,10 +8,8 @@ limpiar_modulo_politica :-
     retractall(politica:max_cursos_area(_)),
     retractall(politica:incompatible(_, _)).
 
-% ============================================================================
-% CASOS VÁLIDOS
-% ============================================================================
 
+%casos validos
 test(politica_valida_completa_carga_en_modulo, [setup(limpiar_modulo_politica)]) :-
     cargar_politica('tests/fixtures/policy/politica_valida.pl'),
     politica:max_porcentaje_carrera(computadores, 70),
@@ -49,10 +47,8 @@ test(recargar_politica_reemplaza_completamente_valores_anteriores, [setup(limpia
     \+ politica:max_porcentaje_carrera(matematica, _),
     \+ politica:incompatible(ic1802, ic1803).
 
-% ============================================================================
-% CASOS INVÁLIDOS (ARCHIVO, SINTAXIS, VACÍO Y ATOMICIDAD)
-% ============================================================================
 
+%casos invalidos
 test(archivo_inexistente_lanza_error, [
     setup(limpiar_modulo_politica),
     throws(error(e3_policy(archivo_inexistente('tests/fixtures/policy/no_existe.pl')), _))
@@ -65,8 +61,7 @@ test(error_de_sintaxis_lanza_error, [
 ]) :-
     cargar_politica('tests/fixtures/policy/politica_sintaxis_error.pl').
 
-% Documentación de precedencia: ante archivo/lista vacía se verifica primero
-% max_cursos_area_faltante antes que sin_porcentajes.
+%max_cursos_area_faltante antes que sin_porcentajes
 test(archivo_vacio_lanza_max_cursos_area_faltante, [
     setup(limpiar_modulo_politica),
     throws(error(e3_policy(max_cursos_area_faltante), _))
@@ -88,10 +83,8 @@ test(directiva_en_archivo_es_rechazada, [
 ]) :-
     cargar_politica('tests/fixtures/policy/politica_con_directiva.pl').
 
-% ============================================================================
-% CASOS INVÁLIDOS PUROS (validar_politica/1)
-% ============================================================================
 
+%casos invalidos puros
 test(carrera_no_atomo_invalida, [
     throws(error(e3_policy(carrera_invalida(123)), _))
 ]) :-
@@ -203,10 +196,8 @@ test(hecho_desconocido_invalido, [
         creditos_minimos(12)
     ]).
 
-% ============================================================================
-% COBERTURA DE CARRERAS Y PRUEBA DE INTEGRACIÓN LIGERA
-% ============================================================================
 
+%prueba de integracion ligera
 test(cobertura_carreras_exitosa, [setup(limpiar_modulo_politica)]) :-
     cargar_politica('tests/fixtures/policy/politica_valida.pl'),
     Combinaciones = [
