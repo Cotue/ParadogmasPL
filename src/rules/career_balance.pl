@@ -2,7 +2,7 @@
     viola_balance/2,
     cumple_balance/1
 ]).
-
+:- dynamic politica:max_porcentaje_carrera/2.
 
 % =========================================================
 % Regla de balance entre carreras
