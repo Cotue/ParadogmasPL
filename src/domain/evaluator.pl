@@ -24,19 +24,7 @@
 ]).
 
 
-% =========================================================
-% Primera violacion de politica academica
-% =========================================================
 
-% primera_violacion(+Combinacion, -Razon)
-%
-% Retorna la primera violacion segun el orden establecido:
-% 1. Balance entre carreras.
-% 2. Limite de cursos por area.
-% 3. Incompatibilidad entre cursos.
-%
-% Falla si la combinacion cumple todas las reglas.
-% Requiere una combinacion y una politica previamente validadas.
 
 primera_violacion(Combinacion, Razon) :-
     viola_balance(Combinacion, RazonEncontrada),
@@ -54,17 +42,7 @@ primera_violacion(Combinacion, Razon) :-
     Razon = RazonEncontrada.
 
 
-% =========================================================
-% Evaluacion completa de una combinacion
-% =========================================================
 
-% evaluar_combinacion(+Combinacion, -Resultado)
-%
-% Devuelve exactamente un resultado para una combinacion
-% valida y una politica previamente cargada y validada.
-%
-% Si existe una violacion, devuelve resultado(false, Razon).
-% Si no existe ninguna, devuelve resultado(true, ninguna).
 
 evaluar_combinacion(Combinacion, Resultado) :-
     primera_violacion(Combinacion, Razon),
@@ -76,24 +54,6 @@ evaluar_combinacion(Combinacion, Resultado) :-
     Resultado = resultado(true, ninguna).
 
 
-% =========================================================
-% Recorrido de todas las combinaciones (KANE3-41)
-% =========================================================
-
-% evaluacion(?Id, -Evaluado)
-%
-% Evaluado = evaluado(combinacion(Id, Cursos, CreditosTotales), Resultado)
-%
-% Obtiene cada hecho combinacion/3 y lo evalua.
-% - Con Id libre: enumera TODAS las combinaciones por
-%   backtracking, en el orden en que fueron registradas
-%   (orden de Id, porque assertz conserva el orden de la
-%   lista producida por cargar_combinaciones/2).
-% - Con Id ligado: devuelve solo la evaluacion de esa
-%   combinacion; falla si no existe ninguna con ese Id.
-%
-% La combinacion se entrega tal como esta en los hechos:
-% Prolog no crea, elimina, reordena ni modifica combinaciones.
 evaluacion(Id, evaluado(Combinacion, Resultado)) :-
     combinacion(Id, Cursos, CreditosTotales),
     Combinacion = combinacion(Id, Cursos, CreditosTotales),
@@ -113,18 +73,7 @@ evaluar_todas(Evaluados) :-
     ).
 
 
-% evaluar_una(+Combinacion, -Resultado)   (privado)
-%
-% Garantiza EXACTAMENTE un resultado por combinacion.
-%
-% Por que (Contrato Maestro §42 y §50): findall/3 recolecta
-% una solucion por cada exito del objetivo. Si la evaluacion
-% dejara dos soluciones, la combinacion saldria duplicada; si
-% fallara, la combinacion desapareceria en silencio. Por eso:
-% - el if-then-else toma solo la primera solucion de
-%   evaluar_combinacion/2 (nunca duplica);
-% - si no hay solucion, se lanza un error explicito en lugar
-%   de fallar (nunca se pierde una combinacion).
+
 evaluar_una(Combinacion, Resultado) :-
     (   evaluar_combinacion(Combinacion, ResultadoEncontrado)
     ->  Resultado = ResultadoEncontrado
