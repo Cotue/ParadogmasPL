@@ -15,6 +15,7 @@ cargar_pares(Pares) :-
 
 %son_incompatibles/2
 test(son_incompatibles_funciona_en_ambos_sentidos, [
+    nondet,
     setup(cargar_pares([incompatible('CE1101', 'CE1102')]))
 ]) :-
     son_incompatibles('CE1101', 'CE1102'),
