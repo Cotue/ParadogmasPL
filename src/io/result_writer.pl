@@ -153,7 +153,7 @@ lanzar_error_salida(Ruta, Causa) :-
         )
     ).
 
-
+ 
 % lanzar_error_resultado(+Detalle)
 lanzar_error_resultado(Detalle) :-
     throw(
